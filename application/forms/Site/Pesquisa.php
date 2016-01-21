@@ -21,13 +21,13 @@ class Form_Site_Pesquisa extends Zend_Form {
         
         $this->setMethod("post")->setAction("pesquisa/");
         
-        $produto_id = new Zend_Form_Element_Text("produto_id");
-        $produto_id->setAttribs(array(
+        $produto_pesquisa = new Zend_Form_Element_Text("produto_pesquisa");
+        $produto_pesquisa->setAttribs(array(
             'class' => 'form-control',
             'placeholder' => 'informe o nome do produto'
         ));
         
-        $this->addElement($produto_id);
+        $this->addElement($produto_pesquisa);
         
         // submit
         $submit = new Zend_Form_Element_Submit("submit");
