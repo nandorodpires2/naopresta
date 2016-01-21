@@ -1,7 +1,45 @@
 <section>
+    
     <div class="row">
-        <div class="col-md-12">
-            <h3><?php echo $this->translate("Page Index"); ?></h3>
+        <div class="col-lg-8 col-lg-offset-2 text-center">
+            <h5>
+                Neste portal você fica sabendo se o produto que pensa em comprar 
+                vale a pena e caso tenha comprado algum produto que não prestou 
+                você pode deixar registrado aqui.
+            </h5>
+            <hr />
         </div>
-    </div>    
+    </div> 
+    
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <h4>
+                Pensa em comprar um produto? veja aqui se ele presta!
+            </h4>
+            <div class="panel panel-default">
+                <div class="panel-heading">Pesquise Se Presta</div>
+                <div class="panel-body">
+                    <?php echo $this->formSitePesquisa; ?>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <h4>
+                Comprou um produto ruim? Informe que ele não presta!
+            </h4>
+            <div class="panel panel-default">
+                <div class="panel-heading">Isso Não Presta</div>
+                <div class="panel-body">
+                    <?php echo $this->formSiteNaoPresta; ?>
+                </div>
+            </div>
+        </div>
+    </div> 
+    
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h3><?php echo $this->translate("Piores do mercado"); ?></h3><hr />
+        </div>
+    </div>
+    
 </section>
