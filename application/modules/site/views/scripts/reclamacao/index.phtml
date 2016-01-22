@@ -1,8 +1,50 @@
-<?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+<?php if ($this->produto_naopresta && $this->produtos->count() > 0) : ?>
+<div class="row">
+    <?php foreach ($this->produtos as $produto) : ?>
+    <div class="col-lg-3">        
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <?php echo $produto->produto_nome; ?>
+            </div>
+            <div class="panel-body">
+                <h1 class="text-center">                    
+                    <span class="text-danger"><i class="fa fa-thumbs-o-down"></i> 80%</span>
+                    <a href=""><i class="fa fa-eye"></i></a>
+                </h1>
+                <p class="small text-center">XX reclamações</p>
+            </div>
+            <div class="panel-body text-center">
+                <a href="" class="btn btn-warning">Registrar Reclamação</a>
+            </div>
+        </div>
+    </div>
+    <?php endforeach; ?>
+</div>
+<?php else : ?>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Desculpe,</p>
+        <p>
+            Não encontramos nenhum produto relacionado à sua busca!
+        </p>
+        <p>
+            Preencha o formulário ao lado para registrar sua reclamação.
+        </p>
+    </div>
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form method="" action="">
+                    <fieldset>
+                        <legend>Dados do Produto</legend>                        
+                    </fieldset>
+                    <fieldset>
+                        <legend>Reclamação</legend>
+                    </fieldset>
+                    <?php echo $this->formSiteReclamacao->submit; ?>       
+                </form>        
+            </div>
+        </div>        
+    </div>
+</div>
+<?php endif; ?>

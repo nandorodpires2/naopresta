@@ -19,9 +19,22 @@ class Site_ReclamacaoController extends Zend_Controller_Action {
     
     public function indexAction() {
         
-        // pesquisa o produto
+        if ($this->getRequest()->isPost()) {
         
-        // grava a reclamacao
+            $produto_naopresta = $this->getRequest()->getParam("produto_naopresta");
+            
+            // pesquisa o produto        
+            $this->view->produto_naopresta = $produto_naopresta;
+            $modelProduto = new Model_DbTable_Produto();
+            $where = $modelProduto->getDefaultAdapter()->quoteInto("produto_nome like ?", "%".$produto_naopresta."%");
+            $produtos = $modelProduto->fetchAll($where);
+            $this->view->produtos = $produtos; 
+
+            // grava a reclamacao
+            $formSiteReclamacao = new Form_Site_Reclamacao();
+            $this->view->formSiteReclamacao = $formSiteReclamacao;            
+            
+        }
         
     }
     

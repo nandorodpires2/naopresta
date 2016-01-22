@@ -16,12 +16,12 @@ class Form_Site_NaoPresta extends Zend_Form {
     public function init() {
         
         $this->setAttribs(array(
-            'id' => 'Form-site-nao-presta'
+            'id' => 'form-site-nao-presta'
         ));
         
         $this->setMethod("post")->setAction("reclamacao/");
         
-        $produto_id = new Zend_Form_Element_Text("produto_id_2");
+        $produto_id = new Zend_Form_Element_Text("produto_naopresta");
         $produto_id->setAttribs(array(
             'class' => 'form-control',
             'placeholder' => 'informe o nome completo do produto'

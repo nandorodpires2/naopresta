@@ -5,7 +5,7 @@ class Site_IndexController extends Zend_Controller_Action
 
     public function init()
     {
-        
+        $this->view->headScript()->appendFile($this->view->baseUrl('views/js/site/index.js'));
     }
 
     public function indexAction()
