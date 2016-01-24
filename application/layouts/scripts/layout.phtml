@@ -1,5 +1,9 @@
 <?php echo $this->doctype(); ?>
-
+<?php
+    $frontController = Zend_Controller_Front::getInstance()->getRequest();
+    $module = $frontController->getModuleName();
+    $controller = $frontController->getControllerName();
+?>      
 <html lang="en">
     <head>
 
@@ -28,6 +32,28 @@
     <body>
         <?php echo $this->partial('partials/menu.phtml'); ?>
         <div class="container" id="content">
+            
+            <!-- PESQUISA E BOTAO RECLAMAR -->
+            <?php if ($module === 'site' && $controller !== 'index') : ?>
+            <div class="row">
+                <div class="col-lg-10 text-right">
+                    <form class="form-inline" method="post" action="<?php echo $this->url(array("controller" => "pesquisa"), null, true); ?>">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="exampleInputName2" placeholder="Digite o produto">
+                        </div>
+                        <button type="submit" class="btn btn-success"><i class="fa fa-search"></i> Pesquisar</button>
+                    </form>
+                </div>
+                <div class="col-lg-2 text-right">
+                    <a href="<?php echo $this->url(array(                        
+                        'controller' => 'reclamacao',
+                        'action' => 'index'
+                    ), null, true); ?>" class="btn btn-lg btn-danger">RECLAMAR</a>
+                </div>
+                <div class="col-lg-12"><hr /></div>
+            </div>
+            <?php endif; ?>
+            
             <?php echo $this->layout()->content; ?><hr />            
             <?php echo $this->partial('partials/footer.phtml'); ?>
         </div> <!-- /container -->        

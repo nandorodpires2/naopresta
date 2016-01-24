@@ -24,6 +24,9 @@ class Site_ReclamacaoController extends Zend_Controller_Action {
         $produto_nome = $this->getRequest()->getParam("produto", null);
         $this->view->produto_nome = $produto_nome;
         
+        // parametro de mensagem de produto nao encontrado
+        $this->view->msg = false;
+        
         // grava a reclamacao
         $formSiteReclamacao = new Form_Site_Reclamacao();    
         
@@ -34,6 +37,7 @@ class Site_ReclamacaoController extends Zend_Controller_Action {
             $formSiteReclamacao->produto_nome->setAttrib("readonly", true);
             $formSiteReclamacao->marca_nome->setAttrib("readonly", true);
             $formSiteReclamacao->fabricante_nome->setAttrib("readonly", true);
+            
         }
         
         $this->view->formSiteReclamacao = $formSiteReclamacao; 
@@ -45,6 +49,7 @@ class Site_ReclamacaoController extends Zend_Controller_Action {
             $where = $modelProduto->getDefaultAdapter()->quoteInto("produto_nome like ?", "%".$produto_naopresta."%");
             $produtos = $modelProduto->fetchAll($where);            
             $this->view->produtos = $produtos;     
+            $this->view->msg = true;
         }
         
     }
