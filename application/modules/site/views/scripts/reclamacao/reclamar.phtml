@@ -1,45 +1,3 @@
-<?php if ($this->produtos && $this->produtos->count() > 0) : ?>
-<div class="row">
-    <?php foreach ($this->produtos as $produto) : ?>
-    <div class="col-lg-3">        
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <?php echo $produto->produto_nome; ?>
-            </div>
-            <div class="panel-body">
-                <h1 class="text-center">                    
-                    <span class="text-danger"><i class="fa fa-thumbs-o-down"></i> 80%</span>
-                    <a href=""><i class="fa fa-eye"></i></a>
-                </h1>
-                <p class="small text-center">XX reclamações</p>
-            </div>
-            <div class="panel-body text-center">
-                <a href="<?php echo $this->url(array(
-                    'module' => 'site',
-                    'controller' => 'reclamacao',
-                    'action' => 'index',
-                    'produto' => $produto->produto_id
-                )); ?>" class="btn btn-warning">Registrar Reclamação</a>
-            </div>
-        </div>
-    </div>
-    <?php endforeach; ?>
-</div>
-<?php else : ?>
-    <?php if (!$this->produto_nome) : ?>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="alert alert-warning alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4><strong>Desculpe,</strong></h4>
-                <p>Não encontramos nenhum produto relacionado à sua busca!</p>
-                <p>Preencha o formulário abaixo para registrar sua reclamação.</p>
-            </div>              
-        </div>
-    </div>
-    <?php endif; ?>
 <div class="row">
     <form method="<?php echo $this->formSiteReclamacao->getMethod(); ?>" action="<?php echo $this->url(array("module" => "", "controller" => "reclamacao", "action" => "reclamar")); ?>">
         <div class="col-lg-4">
@@ -87,5 +45,3 @@
         </div>
     </form>
 </div>
-
-<?php endif; ?>

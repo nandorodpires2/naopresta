@@ -1,54 +1,336 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13/05/2015, 16:59:28
+    Author     : Fernando Rodrigues
+*/
+
 body {
-    padding-top: 60px;
-    padding-bottom: 40px;
+    margin-top: 70px;
 }
 
-#content {
-    
+html, * {
+    font-family: Verdana;  
 }
 
-dd {
-    margin-bottom: 7px;
+h3 {
+    //color: #337ab7;
+    color: #fff;
 }
 
-.zf-green {
-    color: #68b604;
+h4 {
+    padding: 10px 0;
 }
+
+h5 {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+ul li {
+    list-style: none;
+}
+
+input[type='text'], input[type='password'], textarea {    
+    font-size: 17px;
+}
+
+fieldset {
+    border: 1px solid #DCDCDC;
+    padding: 7px;
+    margin-bottom: 10px;
+}
+
+fieldset legend {
+    border: none;
+}
+
+.container-page {
+    margin-top: 5px;
+}
+
+/* ajax loader */
+.ajax-loader {
+    display: block;
+    position: relative;
+    background: url(../img/ajax-loader.gif) no-repeat;    
+}
+
+/* TEXTS */
+.lead {
+    font-size: 16px;
+}
+
+.table tbody>tr>td {
+    vertical-align: middle;
+}
+
+.transparent {
+    opacity:0.65;
+    -moz-opacity: 0.65;
+    filter: alpha(opacity=65);
+    box-shadow: 5px;        
+}
+
+.bolder {
+    font-weight: bold;
+}
+
+.link-well {
+    //color: #FFF;
+}
+
+.badge {
+    background-color: green;
+}
+
+/* buttons */
 
 .btn-success {
-  background-color: #57a900;
-  background-image: -moz-linear-gradient(top, #70d900, #57a900);
-  background-image: -ms-linear-gradient(top, #70d900, #57a900);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#70d900), to(#57a900));
-  background-image: -webkit-linear-gradient(top, #70d900, #57a900);
-  background-image: -o-linear-gradient(top, #70d900, #57a900);
-  background-image: linear-gradient(top, #70d900, #57a900);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#70d900', endColorstr='#57a900', GradientType=0);
+    background-color: #fff;
+    border-color: #CC66CC;
+    color: #fff;
 }
 
-.btn-success:hover,
-.btn-success:active,
-.btn-success.active,
-.btn-success.disabled,
-.btn-success[disabled] {
-  background-color: #57a900;
+.btn {
+    border-radius: 0;
+    height: 50px;
 }
 
-.btn-success:active, .btn-success.active {
-  background-color: #57a900;
+.btn-info {
+    background-color: #D19275;
+    border-color: #E9C2A6;
+    color: #fff;
 }
 
-div.container a.brand {
-    background: url("../img/zf2-logo.png") no-repeat scroll 0 10px transparent;
-    margin-left: 0;
-    padding: 8px 20px 12px 40px;
+
+.btn-sm {
+    height: 30px !important;    
 }
 
-footer a {
-    padding: 0 5px;    
+.input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:first-child > .btn-group:not(:first-child) > .btn, .input-group-btn:first-child > .btn:not(:first-child), .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group > .btn, .input-group-btn:last-child > .dropdown-toggle {
+    border-radius: 0;
 }
 
-footer a:hover {
-    color: #696969;
+/* nav bar */
+.navbar-nav > li > a:focus, navbar-nav > li > a:hover {
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .navbar-default .navbar-nav > li > a span{
+        display: block !important;
+        visibility: visible !important;
+    }
+}
+.navbar-default .navbar-nav > li > a span {
+    display: none;
+}
+.navbar-default .navbar-nav > li > a {    
+    color: #FFF;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover { 
+    background-color: transparent;
+    color: #fff;
+}
+
+/* forms elements */
+dd, dt {
+    /*line-height: 0;*/
+}
+
+/* borders */
+.border-right {
+    //border-right: 1px solid #696969;
+}
+
+.border-left {
+    //border-left: 1px solid #696969;
+}
+
+.border-line {
+    border: #DCDCDC solid 3px;
+}
+
+/* input */
+.input-sm {
+    height: 30px !important;
+}
+
+.form-control {
+    border-radius: 0px;
+    height: 50px;
+    border: 2px solid #e9c2a6;
+}
+
+.form-elements label {
+    width: 100%;
+}
+
+#box-busca-links-info a {
+    color: #FFF;
+    padding: 7px;
+}
+
+.fade.in {
+    //background: rgba(0, 0, 0, 0.8);
+}
+
+/* PANELS */
+.panel { 
+    border-radius: 0;    
+}
+
+.panel {
+    border-color: #ddd;
+    -webkit-box-shadow: 5px 6px 11px 0px rgba(50, 50, 49, 0.5);
+    -moz-box-shadow:    5px 6px 11px 0px rgba(50, 50, 49, 0.5);
+    box-shadow:         5px 6px 11px 0px rgba(50, 50, 49, 0.5);
+}
+
+/* alerts */
+.alert {
+    border: 1px solid transparent;
+    border-radius: 0;
+    margin-bottom: 15px;
+    padding: 15px;
+    text-align: left;
+}
+
+.alert-success {
+    //border-color: #8a6d3b;
+}
+
+.alert-warning {
+    //border-color: #8a6d3b;
+}
+
+.alert-danger {
+    //border-color: #8a6d3b;
+}
+
+.alert-dismissable .close, .alert-dismissible .close {
+    right: 0;
+}
+
+/* modal */
+.modal-content  {
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 0px !important; 
+}
+
+.modal-lg {
+  max-width: 900px;}
+@media (min-width: 768px) {
+   .modal-lg {
+    width: 100%;
+  } 
+}
+@media (min-width: 992px) {
+  .modal-lg {
+    width: 900px;
+  }
+}
+
+.titulo-salao {
+    color: #FFF;
+    font-weight: bolder;
+}
+
+.well {
+    border-radius: 0 !important;
+    //border-color: rgba(255,105,180,0.2);
+    //background-color: rgba(255,105,180,0.3);
+}
+
+.well-success {
+    background-color: #FFF;
+    border-color: #FFF;
+}
+
+.agenda-cliente {         			
+    border-color: #ddd;
+    -webkit-box-shadow: 5px 6px 11px 0px rgba(238, 18, 137, 0.5);
+    -moz-box-shadow:    5px 6px 11px 0px rgba(238, 18, 137, 0.5);
+    box-shadow:         5px 6px 11px 0px rgba(238, 18, 137, 0.5);
+}
+
+.thumbnail-shadow {
+    border-color: #ddd;
+    -webkit-box-shadow: 5px 6px 11px 0px rgba(50, 50, 49, 0.5);
+    -moz-box-shadow:    5px 6px 11px 0px rgba(50, 50, 49, 0.5);
+    box-shadow:         5px 6px 11px 0px rgba(50, 50, 49, 0.5);
+}
+
+.spacing {
+    padding: 10px;
+}
+
+/* busca */
+.busca-results {
+    border-bottom: 5px solid #ebebeb;
+    padding: 7px 0; 
+    margin: 10px 0;
+}
+
+.form-inline .input-group {
+    display: inline-table;
+    vertical-align: 0;
+}
+
+/* backgrounds */
+.bg-info {
+    background: #333333;
+}
+.bg-success {
+    background: #dff0d8;
+}
+
+a.btn {
+    height: auto;
+}
+
+
+/* FOOTER */
+footer {
+    padding-top: 100px;
+    padding-bottom: 0;
+}
+
+footer a {    
+    color: #FFF;
     text-decoration: none;
+
+}
+
+footer a:hover, footer a:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav > li > a:focus,
+.nav > li > a:hover {    
+    background-color: #FF34B3;
+    text-decoration: none;
+}
+
+/* capas */
+.img-capa-cliente {
+    display: table;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    //background: url(../img/capas/capa_cliente.jpg) no-repeat center center scroll;
+    //background: url(../img/anuncio/makebe_home_page.jpg) no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 }

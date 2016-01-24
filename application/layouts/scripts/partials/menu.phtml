@@ -1,3 +1,8 @@
+<?php
+    $frontController = Zend_Controller_Front::getInstance()->getRequest();
+    $module = $frontController->getModuleName();
+    $controller = $frontController->getControllerName();
+?>        
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -17,8 +22,29 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="#"></a></li>                            
+                <li><a href="#"></a></li>   
+                <li>
+                    <form class="form-inline" method="post" action="<?php echo $this->url(array("controller" => "pesquisa"), null, true); ?>">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="exampleInputName2" placeholder="Digite o produto">
+                        </div>
+                        <button type="submit" class="btn btn-success"><i class="fa fa-search"></i> Pesquisar</button>
+                    </form>
+                </li>
             </ul>            
+            
+            <!-- PESQUISA E RECLAMACAO -->
+            <?php if ($module === 'site' && $controller !== 'index') : ?>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="" class="btn btn-danger">RECLAMAR</a>
+                </li>
+            </ul>
+            <?php endif; ?>
+            
         </div><!-- /.navbar-collapse -->
+        
+        
+        
     </div><!-- /.container-fluid -->
 </nav>

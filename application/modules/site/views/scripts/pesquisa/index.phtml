@@ -19,7 +19,12 @@
                 <p class="small text-center">XX reclamações</p>
             </div>
             <div class="panel-body text-center">
-                <a href="" class="btn btn-warning">Registrar Reclamação</a>
+                <a href="<?php echo $this->url(array(
+                    'module' => 'site',
+                    'controller' => 'reclamacao',
+                    'action' => 'index',
+                    'produto' => $produto->produto_id
+                )); ?>" class="btn btn-warning">Registrar Reclamação</a>
             </div>
         </div>
     </div>
