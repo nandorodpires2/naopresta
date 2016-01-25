@@ -25,11 +25,11 @@ class Site_PesquisaController extends Zend_Controller_Action {
         
         // busca o(s) produto(s)
         $produto_pesquisa = $this->getRequest()->getParam("produto_pesquisa", null);        
-        
+                
         if ($produto_pesquisa) {
             $this->view->produto_pesquisa = $produto_pesquisa;
             $modelProduto = new Model_DbTable_Produto();
-            $where = $modelProduto->getDefaultAdapter()->quoteInto("produto_nome like ?", "%".$produto_pesquisa."%");
+            $where = $modelProduto->getDefaultAdapter()->quoteInto("produto_nome like ?", "%".$produto_pesquisa."%");        
             $produtos = $modelProduto->fetchAll($where);
             $this->view->produtos = $produtos;            
         }

@@ -102,13 +102,23 @@ class Site_ReclamacaoController extends Zend_Controller_Action {
 
                     // grava reclamacao
                     $dadosReclamacao = array(
-
+                        'produto_id' => $produto_id,
+                        'reclamacao_descricao' => $dadosPost['reclamacao_descricao'],
+                        'reclamacao_nota' => $dadosPost['reclamacao_nota'],
+                        'reclamacao_nome' => $dadosPost['reclamacao_nome'],
+                        'reclamacao_email' => $dadosPost['reclamacao_email'],
+                        'reclamacao_cidade' => $dadosPost['reclamacao_cidade'],
+                        'reclamacao_estado' => $dadosPost['reclamacao_estado']
                     );
+                    
+                    $modelReclamacao = new Model_DbTable_Reclamacao();
+                    $modelReclamacao->insert($dadosReclamacao);
                     
                     Zend_Db_Table_Abstract::getDefaultAdapter()->commit();
                 
                 } catch (Exception $ex) {
                     Zend_Db_Table_Abstract::getDefaultAdapter()->rollBack();
+                    Zend_Debug::dump($ex->getMessage());
                 }
                 
             }
@@ -119,15 +129,38 @@ class Site_ReclamacaoController extends Zend_Controller_Action {
     }
     
     private function gravaFabricante(array $data) {
-        
+        try {
+            $modelFabricante = new Model_DbTable_Fabricante();
+            return $modelFabricante->insert(array(
+                'fabricante_nome' => $data['fabricante_nome']
+            ));
+        } catch (Exception $ex) {
+            throw new Exception($ex->getMessage());
+        }
     }
     
     private function gravaMarca(array $data, $fabricante_id) {
-        
+        try {
+            $modelMarca = new Model_DbTable_Marca();
+            return $modelMarca->insert(array(
+                'fabricante_id' => $fabricante_id,
+                'marca_nome' => $data['marca_nome']
+            ));
+        } catch (Exception $ex) {
+            throw new Exception($ex->getMessage());
+        }
     }
     
     private function gravaProduto(array $data, $marca_id) {
-        
+        try {
+            $modelProduto = new Model_DbTable_Produto();
+            return $modelProduto->insert(array(
+                'marca_id' => $marca_id,
+                'produto_nome' => $data['produto_nome']
+            ));
+        } catch (Exception $ex) {
+            throw new Exception($ex->getMessage());
+        }
     }
     
 }
