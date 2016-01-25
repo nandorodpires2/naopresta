@@ -69,6 +69,14 @@ class Form_Site_Reclamacao extends Zend_Form {
             'placeholder' => 'Informe seu e-mail'
         ));
         
+        // reclamacao_empresa
+        $reclamacao_empresa = new Zend_Form_Element_Text("reclamacao_empresa");
+        $reclamacao_empresa->setLabel("Empresa onde comprou o produto");
+        $reclamacao_empresa->setAttribs(array(
+            'class' => 'form-control',
+            'placeholder' => 'Informe seu e-mail'
+        ));
+        
         // reclamacao_cidade
         $reclamacao_cidade = new Zend_Form_Element_Text("reclamacao_cidade");
         $reclamacao_cidade->setLabel("Cidade");
@@ -119,6 +127,7 @@ class Form_Site_Reclamacao extends Zend_Form {
             $fabricante_nome,
             $marca_nome,
             $reclamacao_descricao,
+            $reclamacao_empresa,
             $reclamacao_nome,
             $reclamacao_email,
             $reclamacao_cidade,
