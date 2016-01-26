@@ -15,6 +15,8 @@
 
         <title>Não Presta!!</title>
 
+        <link rel="shortcut icon" href="<?php echo $this->baseUrl('views/img/logo.ico'); ?>" />
+        
         <!-- CSS -->
         <link href="<?php echo $this->baseUrl("views/css/bootstrap.min.css"); ?>" rel="stylesheet">        
         <link href="<?php echo $this->baseUrl("views/css/bootstrap-theme.min.css"); ?>" rel="stylesheet">
@@ -38,7 +40,7 @@
             <!-- PESQUISA E BOTAO RECLAMAR -->
             <?php if ($module === 'site' && $controller !== 'index') : ?>
             <div class="row">
-                <div class="col-lg-10 text-right">
+                <div class="col-lg-12 text-right">
                     <form class="form-inline" method="post" action="<?php echo $this->url(array("controller" => "pesquisa"), null, true); ?>">
                         <div class="form-group">
                             <input type="text" name="produto_pesquisa" class="form-control" id="produto_pesquisa" placeholder="Digite o produto">
@@ -46,12 +48,14 @@
                         <button type="submit" class="btn btn-success"><i class="fa fa-search"></i> Pesquisar</button>
                     </form>
                 </div>
+                <!--
                 <div class="col-lg-2 text-right">
                     <a href="<?php echo $this->url(array(                        
                         'controller' => 'reclamacao',
                         'action' => 'index'
                     ), null, true); ?>" class="btn btn-lg btn-danger">RECLAMAR</a>
                 </div>
+                -->
                 <div class="col-lg-12"><hr /></div>
             </div>
             <?php endif; ?>
@@ -62,3 +66,5 @@
         <?php echo $this->inlineScript() ?>
     </body>
 </html>
+
+

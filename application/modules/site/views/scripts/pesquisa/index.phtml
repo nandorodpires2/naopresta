@@ -33,8 +33,19 @@
 <?php else : ?>
 <div class="row">
     <div class="col-lg-12">
-        <hr />
-        <div class="alert alert-warning">Nenhum produto encontrado</div>        
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h4><strong>Desculpe,</strong></h4>
+            <p>Não encontramos nenhum produto relacionado à sua busca!</p>
+            <p>
+                <a href="<?php echo $this->url(array(                        
+                    'controller' => 'reclamacao',
+                    'action' => 'index'
+                ), null, true); ?>" class="btn btn-lg btn-danger">RECLAMAR</a>
+            </p>
+        </div>              
     </div>
 </div>
 <?php endif; ?>

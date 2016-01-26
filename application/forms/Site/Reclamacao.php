@@ -127,7 +127,7 @@ class Form_Site_Reclamacao extends Zend_Form {
             $fabricante_nome,
             $marca_nome,
             $reclamacao_descricao,
-            $reclamacao_empresa,
+            //$reclamacao_empresa,
             $reclamacao_nome,
             $reclamacao_email,
             $reclamacao_cidade,
