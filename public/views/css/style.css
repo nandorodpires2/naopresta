@@ -10,6 +10,7 @@ and open the template in the editor.
 
 body {
     margin-top: 70px;
+    background: #FFFAFA;
 }
 
 html, * {
@@ -18,7 +19,7 @@ html, * {
 
 h3 {
     //color: #337ab7;
-    color: #fff;
+    color: #b92c28;
 }
 
 h4 {
@@ -32,6 +33,10 @@ h5 {
 
 ul li {
     list-style: none;
+}
+
+a {
+    color: #2b542c;
 }
 
 input[type='text'], input[type='password'], textarea {    
@@ -50,6 +55,11 @@ fieldset legend {
 
 .container-page {
     margin-top: 5px;
+}
+
+/* images logo */
+.img-logo {
+    width: 170px;
 }
 
 /* ajax loader */
@@ -130,14 +140,16 @@ fieldset legend {
     display: none;
 }
 .navbar-default .navbar-nav > li > a {    
-    color: #FFF;
+    color: #398439;
     font-weight: bold;
+    font-size: 16px;
+    padding-top: 20px;
     text-transform: uppercase;
 }
 
 .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover { 
-    background-color: transparent;
-    color: #fff;
+    background-color: #DCDCDC;
+    color: #2b542c;
 }
 
 /* forms elements */
@@ -305,14 +317,21 @@ footer {
 }
 
 footer a {    
-    color: #FFF;
+    color: #2b542c;
     text-decoration: none;
+    padding-right: 5px;
 
 }
 
 footer a:hover, footer a:focus {
-    color: #fff;
+    color: #398439;
     text-decoration: none;
+}
+
+.container-footer {
+    background: #DCDCDC;
+    margin-top: 20px; 
+    padding: 20px;
 }
 
 .nav > li > a:focus,

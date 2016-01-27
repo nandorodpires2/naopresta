@@ -5,17 +5,7 @@
  */
 $(document).ready(function(){
    
-    $("#form-site-pesquisa").submit(function() {       
-        var produto_pesquisa = $("#produto_pesquisa").val();
-        
-        if (produto_pesquisa === '') {
-            alert("Por favor, informe o produto");
-            return false;
-        }
-        
-        return true;
-        
-    });
+    
     
 });
 

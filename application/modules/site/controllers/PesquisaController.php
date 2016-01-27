@@ -27,13 +27,29 @@ class Site_PesquisaController extends Zend_Controller_Action {
         $produto_pesquisa = $this->getRequest()->getParam("produto_pesquisa", null);        
                 
         if ($produto_pesquisa) {
+            
+            // grava a pesquisa
+            $this->gravaPesquisa($produto_pesquisa);
+            
             $this->view->produto_pesquisa = $produto_pesquisa;
-            $modelProduto = new Model_DbTable_Produto();
-            $where = $modelProduto->getDefaultAdapter()->quoteInto("produto_nome like ?", "%".$produto_pesquisa."%");        
-            $produtos = $modelProduto->fetchAll($where);
+            $modelReclamacao = new Model_DbTable_Reclamacao();
+            $produtos = $modelReclamacao->pesquisaProduto($produto_pesquisa);
             $this->view->produtos = $produtos;            
         }
         
+    }
+    
+    private function gravaPesquisa($key) {
+        $modelPesquisa = new Model_DbTable_Pesquisa();
+        try {
+            $modelPesquisa->insert(array(
+                "pesquisa_produto" => $key,
+                "pesquisa_ip" => $this->getRequest()->getClientIp()
+            ));
+            return true;
+        } catch (Exception $ex) {
+            return;
+        }
     }
     
 }

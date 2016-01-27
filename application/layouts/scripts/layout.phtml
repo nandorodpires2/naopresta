@@ -28,6 +28,7 @@
         <script src="<?php echo $this->baseUrl("views/js/jquery.min.js"); ?>"></script>
         <script src="<?php echo $this->baseUrl("views/js/bootstrap.min.js"); ?>"></script>
         <script src="<?php echo $this->baseUrl("views/js/jquery.mockjax.js"); ?>"></script>
+        <script src="<?php echo $this->baseUrl("views/js/layout.js"); ?>"></script>  
         <script src="<?php echo $this->baseUrl("views/js/jquery.autocomplete.js"); ?>"></script>        
 
         <?php echo $this->headScript(); ?>
@@ -41,7 +42,7 @@
             <?php if ($module === 'site' && $controller !== 'index') : ?>
             <div class="row">
                 <div class="col-lg-12 text-right">
-                    <form class="form-inline" method="post" action="<?php echo $this->url(array("controller" => "pesquisa"), null, true); ?>">
+                    <form class="form-inline" id="form-site-pesquisa" method="post" action="<?php echo $this->url(array("controller" => "pesquisa"), null, true); ?>">
                         <div class="form-group">
                             <input type="text" name="produto_pesquisa" class="form-control" id="produto_pesquisa" placeholder="Digite o produto">
                         </div>
@@ -59,10 +60,11 @@
                 <div class="col-lg-12"><hr /></div>
             </div>
             <?php endif; ?>
-            
-            <?php echo $this->layout()->content; ?><hr />            
-            <?php echo $this->partial('partials/footer.phtml'); ?>
-        </div> <!-- /container -->        
+            <!-- Messages -->
+            <?php echo $this->messages; ?>
+            <?php echo $this->layout()->content; ?>            
+        </div> <!-- /container -->    
+        <?php echo $this->partial('partials/footer.phtml'); ?>
         <?php echo $this->inlineScript() ?>
     </body>
 </html>

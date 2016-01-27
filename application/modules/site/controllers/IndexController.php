@@ -20,7 +20,9 @@ class Site_IndexController extends Zend_Controller_Action
         $this->view->formSiteNaoPresta = $formSiteNaoPresta;
         
         // Piores
-        
+        $modelReclamacao = new Model_DbTable_Reclamacao();
+        $produtos = $modelReclamacao->pesquisaProduto();
+        $this->view->produtos = $produtos;
     }
 
 }

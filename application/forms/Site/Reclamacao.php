@@ -143,7 +143,7 @@ class Form_Site_Reclamacao extends Zend_Form {
     
     private function getEstados() {
         
-        $options = array();
+        $options = array("" => "Selecione...");
         
         $modelEstado = new Model_DbTable_Estado();
         $estados = $modelEstado->fetchAll();

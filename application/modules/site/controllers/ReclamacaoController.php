@@ -115,11 +115,22 @@ class Site_ReclamacaoController extends Zend_Controller_Action {
                     $modelReclamacao->insert($dadosReclamacao);
                     
                     Zend_Db_Table_Abstract::getDefaultAdapter()->commit();
+                    
+                    $this->_helper->flashMessenger->addMessage(array(
+                        'success' => "Sua reclamação foi enviada com sucesso!"
+                    ));                    
+                    $this->_helper->flashMessenger->addMessage(array(
+                        'success' => "Agradecemos sua colaboração!"
+                    ));                    
                 
                 } catch (Exception $ex) {
                     Zend_Db_Table_Abstract::getDefaultAdapter()->rollBack();
-                    Zend_Debug::dump($ex->getMessage());
+                    $this->_helper->flashMessenger->addMessage(array(
+                        'danger' => $ex->getMessage()
+                    ));
                 }
+                
+                $this->_redirect("reclamacao/reclamar/produto/{$produto_id}");
                 
             }
         }
