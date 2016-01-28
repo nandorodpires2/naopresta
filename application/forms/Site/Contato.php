@@ -42,7 +42,12 @@ class Form_Site_Contato extends App_Forms_Form {
         ));
         $contato_assunto->setDecorators(App_Forms_Decorators::$simpleElementDecorators);
         $contato_assunto->setMultiOptions(array(
-            "" => "Selecione o assunto..."
+            "" => "Selecione o assunto...",
+            "Informação" => "Informação",
+            "Elogio" => "Eologio",
+            "Crítica" => "Crítica",
+            "Sugestão" => "Sugestão",
+            "Outros" => "Outros"
         ));
         
         // contato_mensagem

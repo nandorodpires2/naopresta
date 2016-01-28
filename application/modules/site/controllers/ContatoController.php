@@ -21,6 +21,32 @@ class Site_ContatoController extends Zend_Controller_Action {
         
         $formContato = new Form_Site_Contato();
         $this->view->formContato = $formContato;
+        
+        if ($this->getRequest()->isPost()) {
+            $dadosPost = $this->getRequest()->getPost();
+            if ($formContato->isValid($dadosPost)) {
+                $dadosPost = $formContato->getValues();
+                
+                try {
+                    $modelContato = new Model_DbTable_Contato();
+                    $modelContato->insert($dadosPost);
+                    
+                    // grava na fila de emails                    
+                    
+                    $this->_helper->flashMessenger->addMessage(array(
+                        'success' => 'Contato enviado com sucesso! Em breve retornaremos seu contato'
+                    ));
+                    
+                } catch (Exception $ex) {
+                    $this->_helper->flashMessenger->addMessage(array(
+                        'danger' => 'Falha ao enviar o contato. Favor tente novamente mais tarde! - ' . $ex->getMessage()
+                    ));
+                }
+                
+                $this->_redirect("contato/");
+                
+            }
+        }
                 
     }
     
