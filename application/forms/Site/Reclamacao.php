@@ -25,6 +25,7 @@ class Form_Site_Reclamacao extends Zend_Form {
             'class' => 'form-control',
             'placeholder' => 'Informe o nome do produto'
         ));
+        $produto_nome->setDecorators(App_Forms_Decorators::$simpleElementDecorators);
         
         // produto_id
         $produto_id = new Zend_Form_Element_Hidden("produto_id");
@@ -32,11 +33,12 @@ class Form_Site_Reclamacao extends Zend_Form {
         // fabricante_nome
         $fabricante_nome = new Zend_Form_Element_Text("fabricante_nome");
         $fabricante_nome->setLabel("Fabricante");
-        $fabricante_nome->setRequired();
+        //$fabricante_nome->setRequired();
         $fabricante_nome->setAttribs(array(
             'class' => 'form-control',
             'placeholder' => 'Informe o nome do fabricante'
         ));
+        $fabricante_nome->setDecorators(App_Forms_Decorators::$simpleElementDecorators);
         
         // fabricante_id
         $fabricante_id = new Zend_Form_Element_Hidden("fabricante_id");
@@ -49,6 +51,7 @@ class Form_Site_Reclamacao extends Zend_Form {
             'class' => 'form-control',
             'placeholder' => 'Informe o nome da marca'
         ));
+        $marca_nome->setDecorators(App_Forms_Decorators::$simpleElementDecorators);
         
         // marca_id
         $marca_id = new Zend_Form_Element_Hidden("marca_id");
@@ -104,6 +107,7 @@ class Form_Site_Reclamacao extends Zend_Form {
             'placeholder' => 'Informe porque você está insatisfeito com o produto',
             'maxlenght' => 500
         ));
+        $reclamacao_descricao->addValidator(new App_Validate_Reclamacao());
         
         // reclamacao_nota
         $reclamacao_nota = new Zend_Form_Element_Radio("reclamacao_nota");

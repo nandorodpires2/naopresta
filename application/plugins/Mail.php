@@ -96,5 +96,9 @@ class Plugin_Mail {
     public function setDataMail($name, $value) {
         $this->_view->$name = $value;
     }
+    
+    public function getInstance() {
+        return $this->_zendMail;
+    }
         
 }
